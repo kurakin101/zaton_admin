@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zaton/pages/CartPage.dart';
 import 'package:zaton/pages/CatalogPage.dart';
 import 'package:zaton/pages/DiscountPage.dart';
 import 'package:zaton/pages/ProfilePage.dart';
+import 'package:zaton/pages/RemoteDelPage.dart';
+import 'package:zaton/pages/RemotePromoPage.dart';
 import 'package:zaton/pages/SearchPage.dart';
+import 'package:zaton/pages/StatOrdersPage.dart';
 
+import '../pages/NotificationPage.dart';
+import '../pages/OrdersPage.dart';
 
 class Manager extends StatelessWidget {
   // This widget is the root of your application.
@@ -70,7 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: InkWell(
-                onTap: () => _onItemTapped(0),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StatOrdersPage()),
+                ),
                 child: Container(
                   width: double.infinity,
                   height: 100,
@@ -79,13 +86,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(30.0),
                     color: Color(0xff24C273),
                   ),
-                  child: Text("Статистика заказов", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                  child: Text(
+                    "Статистика заказов",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: InkWell(
-                onTap: () => _onItemTapped(1),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                ),
                 child: Container(
                   width: double.infinity,
                   height: 100,
@@ -94,13 +108,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(30.0),
                     color: Color(0xff24C273),
                   ),
-                  child: Text("Уведомление о получении заказов", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                  child: Text(
+                    "Уведомление о получении заказов",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: InkWell(
-                onTap: () => _onItemTapped(2),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OrdersPage()),
+                ),
                 child: Container(
                   width: double.infinity,
                   height: 100,
@@ -109,13 +130,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(30.0),
                     color: Color(0xff24C273),
                   ),
-                  child: Text("Просмотр всех заказов", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                  child: Text(
+                    "Просмотр всех заказов",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: InkWell(
-                onTap: () => _onItemTapped(3),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RemotePromoPage()),
+                ),
                 child: Container(
                   width: double.infinity,
                   height: 100,
@@ -130,7 +158,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: InkWell(
-                onTap: () => _onItemTapped(4),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RemoteDelPage()),
+                ),
                 child: Container(
                   width: double.infinity,
                   height: 100,

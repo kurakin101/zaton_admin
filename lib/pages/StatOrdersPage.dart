@@ -4,14 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'OrderDetailsPage.dart';
 
-class OrdersPage extends StatefulWidget {
+class StatOrdersPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _OrdersPageState();
+    return _StatOrdersPageState();
   }
 }
 
-class _OrdersPageState extends State<OrdersPage> {
+class _StatOrdersPageState extends State<StatOrdersPage> {
+  bool isItems = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +23,9 @@ class _OrdersPageState extends State<OrdersPage> {
         elevation: 0,
         iconTheme: IconThemeData(
           color: Color(0xff24C273),
-        ),        backgroundColor: Colors.white,
-        title: Text("Мои заказы",
+        ),
+        backgroundColor: Colors.white,
+        title: Text("Статистика заказов",
             style: GoogleFonts.montserrat(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -45,7 +48,7 @@ class _OrdersPageState extends State<OrdersPage> {
               width: double.infinity,
               height: 125,
               color: Colors.white,
-              child:  Column(
+              child: Column(
                 children: [
                   Container(
                     width: double.infinity,
@@ -75,7 +78,7 @@ class _OrdersPageState extends State<OrdersPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Всего потрачено",
+                        Text("Всего заработано",
                             style: GoogleFonts.montserrat(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -91,7 +94,6 @@ class _OrdersPageState extends State<OrdersPage> {
                 ],
               ),
             ),
-
           ),
         ],
       ),
@@ -131,19 +133,24 @@ Widget cart(BuildContext context) {
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
-              Container(
-                width: 100,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Color(0xff24C273),
-                ),
-                child: Text(
-                  "Доставлено",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(18),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Андрей Иванов",
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black)),
+              Text("558.00 р",
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black)),
             ],
           ),
         ),
@@ -157,22 +164,41 @@ Widget cart(BuildContext context) {
         ),
         Padding(
           padding: EdgeInsets.all(18),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Итого",
-                  style: GoogleFonts.montserrat(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
-              Text("558.00 р",
-                  style: GoogleFonts.montserrat(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
-            ],
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff24C273),
+                  onPrimary: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Оплачено ",
+                        style: GoogleFonts.montserrat(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
+
+
       ],
     ),
   );
