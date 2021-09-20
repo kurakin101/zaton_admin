@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zaton/pages/CartPage.dart';
 import 'package:zaton/pages/CatalogPage.dart';
 import 'package:zaton/pages/DiscountPage.dart';
@@ -32,7 +33,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _page = 0;
-  int _selectedIndex = 0;
 
   final _pageOptions = [
     CatalogPage(),
@@ -43,43 +43,138 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _page = index;
-    });
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => _pageOptions[_page]));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pageOptions[_page],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu, ),
-            label: 'Каталог',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_offer_outlined, ),
-            label: 'Акции',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined, ),
-            label: 'Корзина',
-          ),BottomNavigationBarItem(
-            icon: Icon(Icons.search_outlined, ),
-            label: 'Поиск',
-          ),BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined, ),
-            label: 'Личное',
-          ),
-        ],
-        currentIndex: _page,
-        selectedItemColor: Color(0xff24C273),
-        unselectedItemColor: Colors.black38,
-        showUnselectedLabels: true,
-        onTap: _onItemTapped,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("ZATON", style: GoogleFonts.montserrat(fontSize: 26, fontWeight: FontWeight.w800, color: Colors.black),),
+            Text("Администратор", style: GoogleFonts.montserrat(fontSize: 14, color: Colors.black)),
+          ],
+        ),
       ),
+      body: Padding(
+      padding: const EdgeInsets.all(20),
+        child:ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: InkWell(
+                onTap: () => _onItemTapped(0),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xff24C273),
+                  ),
+                  child: Text("Статистика заказов", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                ),
+              ),
+            ),Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: InkWell(
+                onTap: () => _onItemTapped(1),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xff24C273),
+                  ),
+                  child: Text("Уведомление о получении заказов", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                ),
+              ),
+            ),Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: InkWell(
+                onTap: () => _onItemTapped(2),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xff24C273),
+                  ),
+                  child: Text("Просмотр всех заказов", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                ),
+              ),
+            ),Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: InkWell(
+                onTap: () => _onItemTapped(3),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xff24C273),
+                  ),
+                  child: Text("Управление промокодами", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                ),
+              ),
+            ),Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: InkWell(
+                onTap: () => _onItemTapped(4),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xff24C273),
+                  ),
+                  child: Text("Управление курьерами", style: TextStyle(color: Colors.white, fontSize: 20),textAlign: TextAlign.center,),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      // _pageOptions[_page],
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.menu, ),
+      //       label: 'Каталог',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.local_offer_outlined, ),
+      //       label: 'Акции',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.shopping_cart_outlined, ),
+      //       label: 'Корзина',
+      //     ),BottomNavigationBarItem(
+      //       icon: Icon(Icons.search_outlined, ),
+      //       label: 'Поиск',
+      //     ),BottomNavigationBarItem(
+      //       icon: Icon(Icons.account_circle_outlined, ),
+      //       label: 'Личное',
+      //     ),
+      //   ],
+      //   currentIndex: _page,
+      //   selectedItemColor: Color(0xff24C273),
+      //   unselectedItemColor: Colors.black38,
+      //   showUnselectedLabels: true,
+      //   onTap: _onItemTapped,
+      // ),
     );
     // bottomNavigationBar: NeumorphicTheme(
     //   theme: NeumorphicThemeData(

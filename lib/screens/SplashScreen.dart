@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Column(
                 children: [
                   Text("ZATON", style: GoogleFonts.montserrat(fontSize: 36, fontWeight: FontWeight.w800),),
-                  Text("Курьер", style: GoogleFonts.montserrat(fontSize: 22),),
+                  Text("Администратор", style: GoogleFonts.montserrat(fontSize: 22),),
                 ],
               ),
               Column(
