@@ -109,6 +109,7 @@ Widget cart(BuildContext context) {
     ),
     child: Column(
       children: [
+        appbar(),
         Container(
           width: double.infinity,
           height: 1,
@@ -117,24 +118,38 @@ Widget cart(BuildContext context) {
         Padding(
           padding: const EdgeInsets.all(18),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 100,
-                height: 30,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(color: Color(0xff24C273))),
-                child: Text("15:00"),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 30,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(color: Color(0xff24C273))),
+                      child: Text("15:00"),
+                    ),
+                    SizedBox(
+                      width: 26,
+                    ),
+                    Text("15 марта",
+                        style: GoogleFonts.montserrat(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black)),
+                  ],
+                ),
               ),
-              Text("15 марта",
-                  style: GoogleFonts.montserrat(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
+              Expanded(
+                flex: 1,
+                child: SizedBox(),
+              ),
             ],
           ),
+
         ),
         Padding(
           padding: EdgeInsets.all(18),
@@ -174,7 +189,7 @@ Widget cart(BuildContext context) {
                   primary: Color(0xff24C273),
                   onPrimary: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 child: Padding(
@@ -233,6 +248,39 @@ Widget item() {
         Text(
           "115.00 р",
           style: TextStyle(fontSize: 20),
+        ),
+      ],
+    ),
+  );
+}
+Widget appbar() {
+  return Padding(
+    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.arrow_downward_outlined, size: 20,),
+                Text("Сортировка", style: TextStyle(color: Colors.black, fontSize: 18)),
+          ],
+        ),
+        SizedBox(
+          height: 12,
+        ),
+        Text(
+          "По дате",
+          style: TextStyle(fontSize: 16),
+        ),
+        SizedBox(
+          height: 12,
+        ),
+        Text(
+          "По дате",
+          style: TextStyle(fontSize: 16),
         ),
       ],
     ),
